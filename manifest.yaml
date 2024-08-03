@@ -1,0 +1,7 @@
+---
+applications:
+- name: nodeapp
+  path: /
+  memory: 128M
+  random-route: true
+  

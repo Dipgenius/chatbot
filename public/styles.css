@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    position: relative;
+    background: conic-gradient(
+        #ff0000 0% 25%,
+        #00ff00 25% 50%,
+        #0000ff 50% 75%,
+        #ffff00 75% 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#wheel:before {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.led {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    display: none;
+}
+
+#green-led {
+    background-color: #00ff00;
+}
+
+#blue-led {
+    background-color: #0000ff;
+}
+
+#red-led {
+    background-color: #ff0000;
+}
+
+#yellow-led {
+    background-color: #ffff00;
+}
+
+#investment, #points {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#spin-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#spin-button:hover {
+    background-color: #0056b3;
+}
+
+#spin-button:active {
+    transform: scale(0.98);
+}
+
+#animation-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes dollar-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes dollar-down {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+
+.dollar-animation {
+    font-size: 24px;
+    margin: 5px 0;
+}
