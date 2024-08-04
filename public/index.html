@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5988777477146679"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img src="Black and Red Laser Games Logo (1).gif" alt="Logo" class="logo">
+    </header>
+    <div id="game-container">
+        <div id="wheel">
+            <div class="led" id="green-led"></div>
+            <div class="led" id="blue-led"></div>
+            <div class="led" id="red-led"></div>
+            <div class="led" id="yellow-led"></div>
+        </div>
+        <div id="investment">Investment: ₹100</div>
+        <div id="points">Points: 0</div>
+        <button id="spin-button">Spin the Wheel</button>
+        <div id="animation-container"></div>
+    </div>
+    <div id="auth-forms">
+        <form id="sign-up-form">
+            <input type="text" id="sign-up-username" placeholder="Username" required>
+            <input type="password" id="sign-up-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <form id="log-in-form" style="display: none;">
+            <input type="text" id="log-in-username" placeholder="Username" required>
+            <input type="password" id="log-in-password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+    <div id="profile" style="display: none;">
+        <h2>Profile</h2>
+        <div id="profile-info"></div>
+        <button id="add-money-button">Add Money</button>
+        <button id="withdraw-money-button">Withdraw Money</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -7,8 +7,12 @@ const blueLed = document.getElementById('blue-led');
 const redLed = document.getElementById('red-led');
 const yellowLed = document.getElementById('yellow-led');
 const animationContainer = document.getElementById('animation-container');
+const signUpForm = document.getElementById('sign-up-form');
+const logInForm = document.getElementById('log-in-form');
+const authForms = document.getElementById('auth-forms');
+const profileSection = document.getElementById('profile');
 
-let investment = 1000;
+let investment = 100;
 let points = 0;
 let currentRotation = 0;
 
@@ -21,26 +25,54 @@ spinButton.addEventListener('click', () => {
     wheel.style.transform = `rotate(${currentRotation}deg)`;
 
     setTimeout(() => {
-        let selectedSegment = (rotation % 360) / 90;
+        let selectedSegment = Math.floor((rotation % 360) / 90);
         let result;
 
-        if (selectedSegment >= 0 && selectedSegment < 1) {
-            result = 'addition';
-            showLed(greenLed);
-        } else if (selectedSegment >= 1 && selectedSegment < 2) {
-            result = 'subtraction';
-            showLed(blueLed);
-        } else if (selectedSegment >= 2 && selectedSegment < 3) {
-            result = 'multiplication';
-            showLed(redLed);
-        } else {
-            result = 'division';
-            showLed(yellowLed);
+        switch (selectedSegment) {
+            case 0:
+                result = 'addition';
+                showLed(greenLed);
+                break;
+            case 1:
+                result = 'subtraction';
+                showLed(blueLed);
+                break;
+            case 2:
+                result = 'multiplication';
+                showLed(redLed);
+                break;
+            case 3:
+                result = 'division';
+                showLed(yellowLed);
+                break;
         }
 
         applyOperation(result);
         spinButton.disabled = false;
     }, 2000); // Adjusted timeout to match the new duration
+});
+
+signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('sign-up-username').value;
+    const password = document.getElementById('sign-up-password').value;
+    
+    console.log('Sign Up:', { username, password });
+    
+    // Replace with actual sign-up logic
+});
+
+logInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('log-in-username').value;
+    const password = document.getElementById('log-in-password').value;
+    
+    console.log('Log In:', { username, password });
+    
+    // Replace with actual log-in logic
+    // Display profile section and hide auth forms
+    authForms.style.display = 'none';
+    profileSection.style.display = 'block';
 });
 
 function applyOperation(operation) {
@@ -71,7 +103,7 @@ function applyOperation(operation) {
             animateDollars(amount, 'down');
             break;
     }
-    investmentDisplay.textContent = `Investment: $${investment.toFixed(2)}`;
+    investmentDisplay.textContent = `Investment: ₹${investment.toFixed(2)}`;
     pointsDisplay.textContent = `Points: ${points}`;
 }
 
@@ -83,13 +115,9 @@ function showLed(led) {
 function animateDollars(amount, direction) {
     const dollarDiv = document.createElement('div');
     dollarDiv.classList.add('dollar-animation');
-    dollarDiv.textContent = (direction === 'up' ? '+' : '-') + `$${amount.toFixed(2)}`;
+    dollarDiv.textContent = (direction === 'up' ? '+' : '-') + `₹${amount.toFixed(2)}`;
 
-    if (direction === 'up') {
-        dollarDiv.style.animation = 'dollar-up 2s forwards';
-    } else {
-        dollarDiv.style.animation = 'dollar-down 2s forwards';
-    }
+    dollarDiv.style.animation = direction === 'up' ? 'dollar-up 2s forwards' : 'dollar-down 2s forwards';
 
     animationContainer.appendChild(dollarDiv);
 

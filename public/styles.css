@@ -9,15 +9,26 @@ body {
     font-family: Arial, sans-serif;
 }
 
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo {
+    width: 150px; /* Adjust as needed */
+}
+
 #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 80px; /* Space for header */
 }
 
 #wheel {
-    width: 200px;
-    height: 200px;
+    width: 250px; /* Increased size */
+    height: 250px; /* Increased size */
     border-radius: 50%;
     border: 5px solid #000;
     position: relative;
@@ -30,7 +41,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 #wheel:before {
@@ -44,11 +54,11 @@ body {
 }
 
 .led {
-    width: 20px;
-    height: 20px;
+    width: 25px; /* Slightly larger for visibility */
+    height: 25px; /* Slightly larger for visibility */
     border-radius: 50%;
     position: absolute;
-    top: -30px;
+    top: -35px;
     display: none;
 }
 
@@ -131,4 +141,89 @@ body {
 .dollar-animation {
     font-size: 24px;
     margin: 5px 0;
+}
+
+#auth-forms, #profile {
+    display: none;
+}
+
+#auth-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#sign-up-button, #log-in-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#sign-up-button:hover, #log-in-button:hover {
+    background-color: #0056b3;
+}
+
+#sign-up-button:active, #log-in-button:active {
+    transform: scale(0.98);
+}
+
+#sign-up-form, #log-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 300px; /* Adjust as needed */
+}
+
+#sign-up-form input, #log-in-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#sign-up-form button, #log-in-form button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#sign-up-form button:hover, #log-in-form button:hover {
+    background-color: #0056b3;
+}
+
+#sign-up-form button:active, #log-in-form button:active {
+    transform: scale(0.98);
+}
+
+#profile button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#profile button:hover {
+    background-color: #0056b3;
+}
+
+#profile button:active {
+    transform: scale(0.98);
 }
